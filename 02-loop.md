@@ -209,6 +209,102 @@ so we should always use it when we can.
 > 3
 > ~~~
 
+
+
+
+> ## Parsons 1 (using vartests) {.challenge}
+>
+> write a loop that fills r with natural numbers from 1 to 3:
+>
+> ~~~ {.python}
+> [1, 2, 3]
+> ~~~
+> 
+> 
+> ~~~ {.parsons-lines}
+> r = []
+> for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
+> r.append(i)
+> ~~~
+> 
+> ~~~ {.parsons-vartests}
+> [{"initcode": "r = -1", "code": "str_r = str(r)", "message": "the sole test", "variables": {"str_r": "[1, 2, 3]"}}]
+> ~~~
+
+
+> ## Parsons 2 (using output) {.challenge}
+>
+> write a loop that uses `range` to print the first 3 natural numbers:
+>
+> ~~~ {.python}
+> 1
+> 2
+> 3
+> ~~~
+> 
+> 
+> ~~~ {.parsons-lines}
+> for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
+> print(i)
+> ~~~
+>
+> ~~~ {.parsons-output}
+> 1
+> 2
+> 3
+> 
+> ~~~
+
+
+> ## Parsons 3 (using variables) {.challenge}
+>
+> write some code to set `a` to 20 and `b` to 10
+>
+> ~~~ {.parsons-lines}
+> a,b = 10,20
+> a = b
+> b = a
+> a,b = b,a
+> ~~~
+>
+> ~~~ {.parsons-variables}
+> {
+>  "a": 20, 
+>  "b": 10
+> }
+> ~~~
+
+
+
+> ## Parsons 4 (KO) {.challenge}
+>
+> write a loop that uses `range` to print the first 3 natural numbers:
+>
+> ~~~ {.python}
+> 1
+> 2
+> 3
+> ~~~
+> 
+> 
+> ~~~ {.parsons-lines}
+> def do_all():
+> for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
+> print(i)
+> ~~~
+> 
+> ~~~ {.parsons-tests}
+> def testOne(self): # should start with "test"
+>   #capture_stdout()
+>   do_all()
+>   #l = uncapture_stdout()
+>   self.assertEqual(list("123"), l, 'Calling it a day')
+> 
+> ~~~
+
+
+
+
 > ## Computing powers with loops {.challenge}
 >
 > Exponentiation is built into Python:
