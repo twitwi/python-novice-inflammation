@@ -51,7 +51,7 @@ $(function() {
         if ($('.parsons-variables', e).size() > 0) {
             data.variables = $('.parsons-variables', e).text();
             data.variables = JSON.parse(data.variables);
-            $('.parsons-output', e).detach();
+            $('.parsons-variables', e).detach();
         }
 
         // Setup parsons
