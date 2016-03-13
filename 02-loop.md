@@ -212,27 +212,8 @@ so we should always use it when we can.
 
 
 
-> ## Parsons 1 (using vartests) {.challenge}
->
-> write a loop that fills r with natural numbers from 1 to 3:
->
-> ~~~ {.python}
-> [1, 2, 3]
-> ~~~
-> 
-> 
-> ~~~ {.parsons-lines}
-> r = []
-> for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
-> r.append(i)
-> ~~~
-> 
-> ~~~ {.parsons-vartests}
-> [{"initcode": "r = -1", "code": "str_r = str(r)", "message": "the sole test", "variables": {"str_r": "[1, 2, 3]"}}]
-> ~~~
 
-
-> ## Parsons 2 (using output) {.challenge}
+> ## Parsons 1 (using output) {.challenge}
 >
 > write a loop that uses `range` to print the first 3 natural numbers:
 >
@@ -255,8 +236,7 @@ so we should always use it when we can.
 > 
 > ~~~
 
-
-> ## Parsons 3 (using variables) {.challenge}
+> ## Parsons 2 (using variables) {.challenge}
 >
 > write some code to set `a` to 20 and `b` to 10
 >
@@ -273,6 +253,26 @@ so we should always use it when we can.
 >  "b": 10
 > }
 > ~~~
+
+> ## Parsons 3 (using advanced vartests) {.challenge}
+>
+> write a loop that fills r with natural numbers from 1 to 3:
+>
+> ~~~ {.python}
+> [1, 2, 3]
+> ~~~
+> 
+> 
+> ~~~ {.parsons-lines}
+> r = []
+> for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
+> r.append(i)
+> ~~~
+> 
+> ~~~ {.parsons-vartests}
+> [{"initcode": "r = -1", "code": "str_r = str(r)", "message": "the sole test", "variables": {"str_r": "[1, 2, 3]"}}]
+> ~~~
+
 
 
 
