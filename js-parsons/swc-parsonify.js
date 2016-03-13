@@ -2,6 +2,19 @@
 
 
 $(function() {
+    var scrollToView = function(element){
+    var offset = element.offset().top;
+
+    var visible_area_start = $(window).scrollTop();
+    var visible_area_end = visible_area_start + window.innerHeight;
+
+    // Not enough in the viewport (in the 3/4 top), so scroll to it
+    if (offset < visible_area_start || offset > visible_area_start/4+visible_area_end*3/4){
+         $('html,body').animate({scrollTop: offset - window.innerHeight/2}, 1000);
+         return false;
+    }
+    return true;
+    }
     var testsWrap = function(t) {
         return '' +
             'import unittestparson\n' +
@@ -25,10 +38,15 @@ $(function() {
         var e = $('.panel-body', this);
 
         // Injecting html snippet
-        $(e).append('<div id="stash-'+i+'" class="sortable-code" />');
-        $(e).append('<div id="compose-'+i+'" class="sortable-code" />');
-        $(e).append('<p style="clear:both"><a href="#" class="newInstanceLink">New instance</a><a href="#" class="feedbackLink">Get feedback</a></p>');
+        var cont = $('<div class="container parsons-container"/>');
+        var row = $('<div class="row"/>');
+        $(row).append('<div id="stash-'+i+'" class="sortable-code col-xs-12 col-sm-4" />');
+        $(row).append('<div id="compose-'+i+'" class="sortable-code col-xs-12 col-sm-8" />');
+        $(cont).append(row);
+        $(e).append(cont);
+        $(e).append('<p style="clear:both"><a href="#" class="newInstanceLink">(Reset)</a><a href="#" class="feedbackLink">Submit and get feedback below</a></p>');
         $(e).append('<div class="unittest" />');
+        $(e).append('<div class="unittest-after" />');
 
         // Get and remove the exercice description 
         var data = {};
@@ -81,14 +99,15 @@ $(function() {
         var p = new ParsonsWidget(pconf);
         p.init(lines);
         p.shuffleLines();
-        $(".newInstanceLink", e).click(function(event){
+        $('.newInstanceLink', e).click(function(event){
             event.preventDefault();
             p.shuffleLines();
         });
-        $(".feedbackLink", e).click(function(event){
+        $('.feedbackLink', e).click(function(event){
             event.preventDefault();
             var fb = p.getFeedback();
-            $(".unittest", e).html("<h2>Feedback from testing your program:</h2>" + fb.feedback);
+            $('.unittest', e).html('<h2>Feedback from testing your program:</h2>' + fb.feedback);
+            scrollToView($('.unittest', e));
         });
     });
 });
