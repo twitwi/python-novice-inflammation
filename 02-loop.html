@@ -129,20 +129,7 @@ after the loop, letter is c</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Parsons 1 (using vartests)</h2>
-</div>
-<div class="panel-body">
-<p>write a loop that fills r with natural numbers from 1 to 3:</p>
-<pre class="sourceCode python"><code class="sourceCode python">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
-<pre class="parsons-lines"><code>r = []
-for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
-r.append(i)</code></pre>
-<pre class="parsons-vartests"><code>[{&quot;initcode&quot;: &quot;r = -1&quot;, &quot;code&quot;: &quot;str_r = str(r)&quot;, &quot;message&quot;: &quot;the sole test&quot;, &quot;variables&quot;: {&quot;str_r&quot;: &quot;[1, 2, 3]&quot;}}]</code></pre>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Parsons 2 (using output)</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Parsons 1 (using output)</h2>
 </div>
 <div class="panel-body">
 <p>write a loop that uses <code>range</code> to print the first 3 natural numbers:</p>
@@ -159,7 +146,7 @@ print(i)</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Parsons 3 (using variables)</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Parsons 2 (using variables)</h2>
 </div>
 <div class="panel-body">
 <p>write some code to set <code>a</code> to 20 and <code>b</code> to 10</p>
@@ -175,22 +162,15 @@ a,b = b,a</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Parsons 4 (KO)</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Parsons 3 (using advanced vartests)</h2>
 </div>
 <div class="panel-body">
-<p>write a loop that uses <code>range</code> to print the first 3 natural numbers:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="dv">1</span>
-<span class="dv">2</span>
-<span class="dv">3</span></code></pre>
-<pre class="parsons-lines"><code>def do_all():
+<p>write a loop that fills r with natural numbers from 1 to 3:</p>
+<pre class="sourceCode python"><code class="sourceCode python">[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
+<pre class="parsons-lines"><code>r = []
 for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
-print(i)</code></pre>
-<pre class="parsons-tests"><code>def testOne(self): # should start with &quot;test&quot;
-  #capture_stdout()
-  do_all()
-  #l = uncapture_stdout()
-  self.assertEqual(list(&quot;123&quot;), l, &#39;Calling it a day&#39;)
-</code></pre>
+r.append(i)</code></pre>
+<pre class="parsons-vartests"><code>[{&quot;initcode&quot;: &quot;r = -1&quot;, &quot;code&quot;: &quot;str_r = str(r)&quot;, &quot;message&quot;: &quot;the sole test&quot;, &quot;variables&quot;: {&quot;str_r&quot;: &quot;[1, 2, 3]&quot;}}]</code></pre>
 </div>
 </section>
 <section class="challenge panel panel-success">
