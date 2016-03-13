@@ -276,31 +276,6 @@ so we should always use it when we can.
 
 
 
-> ## Parsons 4 (KO) {.challenge}
->
-> write a loop that uses `range` to print the first 3 natural numbers:
->
-> ~~~ {.python}
-> 1
-> 2
-> 3
-> ~~~
-> 
-> 
-> ~~~ {.parsons-lines}
-> def do_all():
-> for i in range($$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$, $$toggle::0::1::2::3::4$$):
-> print(i)
-> ~~~
-> 
-> ~~~ {.parsons-tests}
-> def testOne(self): # should start with "test"
->   #capture_stdout()
->   do_all()
->   #l = uncapture_stdout()
->   self.assertEqual(list("123"), l, 'Calling it a day')
-> 
-> ~~~
 
 
 
